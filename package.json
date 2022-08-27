@@ -1,0 +1,24 @@
+{
+  "name": "curso-js-ob",
+  "version": "1.0.0",
+  "description": "trainnig javaScrip openBootcamp",
+  "main": "index.js",
+  "scripts": {
+    "start": "index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "saludar": "func.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leonpurple/training-Javascript.git"
+  },
+  "keywords": [
+    "curso"
+  ],
+  "author": "Fabricio Martinez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leonpurple/training-Javascript/issues"
+  },
+  "homepage": "https://github.com/leonpurple/training-Javascript#readme"
+}

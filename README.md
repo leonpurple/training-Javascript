@@ -44,3 +44,22 @@ Quokka.js is a developer productivity tool for rapid JavaScript / TypeScript pro
 ### live Server
 
 Launch a local development server with live reload feature for static & dynamic pages.
+
+---
+### node
+
+---
+
+[node.js](nodejs.org) 
+
+``node -v``
+
+``npm -v``
+
+---
+
+npm init : crea el archivo package.json
+
+lo voy completando y creo index.js
+
+atajos para buscar archivos ctrl + p
