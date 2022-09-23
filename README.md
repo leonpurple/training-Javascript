@@ -56,10 +56,3 @@ Launch a local development server with live reload feature for static & dynamic 
 
 ``npm -v``
 
----
-
-npm init : crea el archivo package.json
-
-lo voy completando y creo index.js
-
-atajos para buscar archivos ctrl + p

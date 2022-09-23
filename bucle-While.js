@@ -15,3 +15,4 @@ do{
 	console.log("Estoy en el do while")
 
 }while(i < max)
+
