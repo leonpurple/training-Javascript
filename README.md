@@ -127,9 +127,13 @@ Crea un archivo JS que contenga las siguientes líneas
   
 # 6.Trabajando con listas
 
+### TEMA 6-1
+
 - Listas y métodos de mutacion de listas
-```javascript	
-	//'c'omo trabajar con listas (arrays, arreglos, vectores)
+
+```javascript
+
+//'c'omo trabajar con listas (arrays, arreglos, vectores)
 
 let var1 = 111
 let array = [1002, "hola", false, {id: 5}, null, undefined, var1]
@@ -183,7 +187,6 @@ array_1.splice(3, 5)
 console.log(array_1)
 
 //agrega valores con splice 
-
 array_1.splice(2, 0, "222")
 console.log(array_1)
 array_1.splice(3, 0, "OTOÑO", 'VERANO')
@@ -199,7 +202,8 @@ console.log(array_1)
 
 
 ```
-- 6-2.Concatenación y obtención de fragmentos de listas
+### TEMA 6-2
+  - Concatenación y obtención de fragmentos de listas
 
 ```javascript
 	
@@ -246,7 +250,8 @@ const arraySlice_2 = arraySlice_2.slice(2, -2)
 console.log(arraySlice_2)
 
 ```
-- Métodos de iteración en listas TEMA 6/3
+### TEMA 6/3
+- Métodos de iteración en listas
 
 ```javascript
 	//6-3 MÉTODOS DE ITERACIÓN EN LISTAS
@@ -315,7 +320,10 @@ console.log(objeto.edad)
 
 //indico en tre llaves edad porque es parte del objeto y = le paso todo el metodo 
 ```
-- Métodos avanzados, obtención de listas a partir de listas TEMA 6/4
+
+### TEMA 6/4
+
+- Métodos avanzados, obtención de listas a partir de listas
   
 ```javascript
 //6-4 METODOS AVANZADOS, OBTENCION DE LISTAS A PARTIER DE LISTAS
@@ -407,40 +415,178 @@ const suma = valres.reduce((acumulado, cur, i, arrayActual) => {
 	return acumulado + cur
 })
 console.log(suma)
+```
+---
+### TEMA 6/5
+- Ordenación de listas y comparación entre dos listas 
+ 
+```javascript
+// 6.TRABAJANDO CON LISTAS
+// 6-7 Ordenación de Array y comparación entre dos listas
+
+// -> MËTODO .sort()--> método máseficiente para ordenar LISTAS
+// -> .sort()-> MODIFICA EL ARRAY
+// -> a .sort()-> le paso un funcion CALLBACK y esta  recibe dos parametros:
+// uno es el() indice ANTERIOR ), y el otro ( indice POSTERIOR)
+
+// -> si en  retorn indico -1 INVIERTE EL ORDEN 
+// -> en esta funcion es obligatorio que retorne un numero:
+// ( negativo ) ( positivo ) o ( cero )
+
+const array = [20, 10, 50, 80, 40, 90, 70, 0, 60, 30]
+//---
+array.sort((a, b) => {
+	return -1 //invierte el ORDEN
+})
+console.log(array)
+// [ 30 , 60 , 70 , 90 , 40 , 80 , 50 , 10 , 20 ]
+
+//---
+array.sort((a, b) => {
+	if (a < b) {  //quiero que a tenga un indice mayor que b
+		return -1 //invierte el ORDEN
+	} else if (a > b) {
+		return +1
+	} else { //a === b
+		return 0 // si a === a b retorno un 0
+	}
+})
+console.log(array)
+// [0, 10, 20, 30, 40, 50, 60 ,70, 80, 90 ]
+
+//---
+//ORDENAR ÚNICAMENTE ARRAYS NUMÉRICOS
+const arrayNumerico = [444, 333, 666, 222, 111, 555, 888]
+
+arrayNumerico.sort((a, b) => a - b)
+console.log(arrayNumerico)
+// [ 111, 222, 333, 444, 555, 666, 888]
+
+//---
+//ORDENAR ÚNICAMENTE ARRAYS NUMÉRICOS
+const arrayNumeric = [44, 33, 66, 22, 11, 55, 88]
+
+arrayNumeric.sort((a, b) => b - a) // b - a
+console.log(arrayNumeric)
+// [ 88, 66, 55, 44, 33, 22, 11 ]
+
+//---
+const listaPersonas = [
+	{ nombre: 'Tota', edad: 16 },
+	{ nombre: 'Nico', edad: 22 },
+	{ nombre: 'Naty', edad: 27 },
+	{ nombre: 'Lola', edad: 17 },
+	{ nombre: 'Joel', edad: 97 },
+]
+
+listaPersonas.sort((a, b) => {
+	if (a.edad < b.edad) {
+		return -1
+	} else if(a.edad > b.edad) {
+		return +1
+	} else {
+		return 0
+	}
+})
+console.log(listaPersonas)
+/* [
+	{ nombre: 'Tota', edad: 16 },
+	{ nombre: 'Lola', edad: 17 },
+	{ nombre: 'Nico', edad: 22 },
+	{ nombre: 'Naty', edad: 27 },
+	{ nombre: 'Joel', edad: 97 },
+] */
+
+//---
+//FORMA moderna corta seria 
+
+listaPersonas.sort((a, b) => a.edad - b.edad )
+console.log(listaPersonas)
+/* [
+	{ nombre: 'Tota', edad: 16 },
+	{ nombre: 'Lola', edad: 17 },
+	{ nombre: 'Nico', edad: 22 },
+	{ nombre: 'Naty', edad: 27 },
+	{ nombre: 'Joel', edad: 97 },
+] */
 
 
 
+//--------------//
+//MÉTODO .every()
+//--------------//
+
+
+//Cómo puedo comparar listas
+//el metodo every nos dice si TODOS los componentes de esta lista 
+//cumplen una condicion
+
+//EJEMPLO CON ARRAY DE NUMEROS
+const arrayDeNumeros = [22, 11, -55,-33,44, 66]
+
+result = arrayDeNumeros.every( valores => {
+	if(typeof valores === 'number'){
+		return true
+	}else{
+		return false
+	}
+})
+console.log(result) //true  
+//porque todos los valores son type = 'number' 
+
+
+result = arrayDeNumeros.every( valores => {
+	if(valores < 0){
+		return true
+	}else{
+		return false
+	}
+})
+console.log(result)//false 
+//porque hay en valores hay numeros negativos
+
+//---
+//ahora SIMPLIFICADO de forma actual y moderna 
+
+const resultado = arrayDeNumeros.every(valor => valor > 0)
+console.log(resultado)//false 
+
+
+//--------------------//
+//COMPARACIÓN DE LISTA
+//--------------------//
+
+//las listas no se pueden comparar de esta manera por lo tanto el resultado da false 
+const lista1 = [1, 2]
+const lista2 = [1, 2]
+
+console.log(lista1 == lista2) //false  ///devilmente typado
+console.log(lista1 === lista2)//false  ///fuertemente mente typado
+
+
+//funcion de apoyo ya conociendo el metodo .every()
+
+const compararArray = (lista1, lista2) => {
+	if(lista1.length !== lista2.length)return false
+	const res = lista1.every((valor, i )=> valor === lista2[i]) 
+	return res
+}
+
+console.log(compararArray(lista1, lista2))
+const lista3 = [1,2,3,4]
+console.log(compararArray(lista1, lista2))
 
 
 ```
 
-
-- Ordenación de listas y comparación entre dos listas
+### TEMA 6/6
 - Identificar si existe un valor en un array y objetos iterables
-
-```
-Crea un archivo JS que contenga las siguientes líneas
-
-- Una variable que contenga la lista de la compra (mínimo 5 elementos)
-
-- Modifica la lista de la compra y añádele "Aceite de Girasol"
-
-- Vuelve a modificar la lista de la compra eliminando "Aceite de Girasol"
-
-- Una lista de tus 3 películas favoritas (objetos con propiedades: titulo, director, fecha)
-
-- Una nueva lista que contenga las películas posteriores al 1 de enero de 2010 (utilizando filter)
-
-- Una nueva lista que contenga los directores de la lista de películas original (utilizando map)
-
-- Una nueva lista que contenga los títulos de la lista de películas original (utilizando map)
-
-- Una nueva lista que concatene la lista de directores y la lista de los títulos (utilizando concat)
-
-- Una nueva lista que concatene la lista de directores y la lista de los títulos (utilizando el factor de propagación)
+  
+```javascript
 
 ```
 
+---
 # 7.Trabajando con Sets y Objetos
 
 - Trabajando con Sets
